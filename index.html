@@ -25,7 +25,16 @@ h1 {
 article { font-size:19px; line-height:1.48; letter-spacing:.001em; }
 article p { margin:0 0 1.35em; }
 figure { margin:1.45em 0; }
-figure img { display:block; width:100%; height:auto; }
+figure img {
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:calc(100vh - 48px);
+  max-height:calc(100svh - 48px);
+  margin-inline:auto;
+  object-fit:contain;
+}
 .signature { margin-top:1.1em; text-decoration:underline; }
 @media(min-width:600px) {
   h1 { font-size:45px; }
