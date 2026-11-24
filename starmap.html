@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Csillagok az égen</title>
+<title>Térkép</title>
 <style>
 :root { color-scheme: dark; }
 * { box-sizing: border-box; }
@@ -16,7 +16,10 @@ body { margin: 0; color: #f6f5f2; background: #070c1b; font-family: 'Courier New
 @keyframes twinkle { 0% { opacity: .7; transform: scale(3.5); box-shadow: 0 0 1.75px .7px #fff, 0 0 7px 2.45px rgba(176,207,255,.8); animation-timing-function: ease-out; } 0.45%, 100% { opacity: var(--dim); transform: scale(.75); box-shadow: 0 0 var(--glow) rgba(205,220,255,.7); } }
 main { position: relative; z-index: 2; width: min(100% - 48px, 740px); margin: 0 auto; padding: clamp(88px, 14vh, 160px) 0 clamp(100px, 16vh, 180px); }
 article { font-size: clamp(15px, 1.7vw, 17px); line-height: 1.95; letter-spacing: .012em; text-shadow: 0 2px 12px #030713, 0 0 25px #030713; overflow-wrap: break-word; }
+h1 { margin: 0 0 1.8em; font-size: 1.3em; font-weight: normal; }
 p { margin: 0 0 1.8em; }
+.symbols { display: flex; gap: 20px; margin-top: 3em; color: #fff; }
+.symbols svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
 p:last-child { margin-bottom: 0; }
 @media (max-width: 480px) { main { width: calc(100% - 38px); padding-top: 76px; } article { line-height: 1.85; } }
 
@@ -159,6 +162,7 @@ p:last-child { margin-bottom: 0; }
   <g class="constellation" style="--start:120s"><title>Orion</title><path pathLength="1" d="M150.7 82.3 L122.5 118.9 L162.0 178.0 L184.5 240.0 L259.2 199.2 L204.2 147.0 L184.5 102.0 L150.7 82.3 M162.0 178.0 L181.7 172.4 L204.2 147.0 M184.5 102.0 L257.7 54.1 L238.0 40.0 M257.7 54.1 L274.6 80.8 L277.5 110.4"/><circle cx="150.7" cy="82.3" r="2.5"/><circle cx="122.5" cy="118.9" r="2.5"/><circle cx="162.0" cy="178.0" r="2.5"/><circle cx="184.5" cy="240.0" r="2.5"/><circle cx="259.2" cy="199.2" r="2.5"/><circle cx="204.2" cy="147.0" r="2.5"/><circle cx="184.5" cy="102.0" r="2.5"/><circle cx="257.7" cy="54.1" r="2.5"/><circle cx="238.0" cy="40.0" r="2.5"/><circle cx="274.6" cy="80.8" r="2.5"/><circle cx="277.5" cy="110.4" r="2.5"/><circle cx="181.7" cy="172.4" r="2.5"/></g>
 </svg>
 <main><article>
+<h1>Térkép</h1>
 <p>A világban a társadalom is éli a saját életciklusait. Minden kultúra mintha az emberiség alteregója lenne.</p>
 <p>Időben folyamatosan változva, csakúgy mint maga az egyedi ember.</p>
 <p>A megítélés, a megértés, az értelmezés mind az adott kor és helyzet függvényében evolvál - olykor akár U alakot is leírva.</p>
@@ -171,18 +175,24 @@ p:last-child { margin-bottom: 0; }
 <p>A hét lépcsőt mögöttem, és a hét lépcsőt előttem - ennyi mind az amire igaz mód hivatkozhatok. A hét visszább és a hét előrébb - relatív címzés. </p>
 <p>Az abszolút tartalom lépésről lépésre felülíródik. Az értelmezett és vele az értelem is dinamikus, csak az értelmezés pillanatában pontszerű. Statikus jellege illúzió - ígymond az abszolút értelem is fantázia.</p>
 <p>A megpendített gitárhúr hangot ad. A hang természete hullám. Ha egy adott ponton megállítom a húrt, értelmezhetem a helyzetét - de a hullám megszűnik. A hang elnémul.</p>
-<p>Az anyag viselkedésére fizika. Működése törvényszerű. A természeti törvényeken nem fog az idő, hiszen az idő is a természet része.</p>
+<p>Az anyag viselkedése fizika. Működése törvényszerű. A természeti törvényeken nem fog az idő, hiszen az idő is a természet része.</p>
 <p>A természeti törvény vektorokkal leírható. Egy kód, ami a platformtól függően ábrázolja a képet. Értelmet nem hordoz, azt a pillanatnyi értelmező alkotja.</p>
 <p>A kód egy nyelv. Aki nyelvet tanul, az a pillanatnyi jelentésen keresztül, magas számú mintavételezéssel próbálja visszafejteni a vektort.</p>
 <p>A nyelvtudás így lesz a durva állapotból kezdetben egyre összetettebb. Majd egyre kifinomultabb. Később egyre egyszerűbb. Végül teljesen általános - vektorszerű.</p>
 <p>Az emberi természet kódnyelve a szimbólum.</p>
 <p>Patanjali. Aki az imádkozó tenyerekből a földrehullot. A tudás amely félig finomított emberi - alkalmazott. Félig nyersen természeti - idomíthatatlan. Lenyűgöző és rémisztő. Gyönyörű és veszedelmes.</p>
 <p>Szándéka időtálló, az értelmezés felszínétől mélyebben rejlik. Ábrázol egy utat, amelyet történetben rögzít. </p>
-<p>A szutrák a felszínen jelenetek egy filmben, egy épület lépcsői, egy könyv lapjai. <br>A szutrák a mélyben vektorok - mint három csillagkép, terülnek szét az égen.</p>
+<p>A szutrák a felszínen jelenetek egy filmben, egy épület lépcsői, egy könyv lapjai.</p>
+<p>A szutrák a mélyben vektorok - mint három csillagkép, terülnek szét az égen.</p>
 <p>Szétszórt ereklyék, amik segítenek navigálni az életben - hasznos tudást és képességeket rejtve. </p>
 <p>Amikor felvillan egy csillag az égen, akkor egy kicsit világosabb lesz a lépcsőházban.</p>
 <p>Amit Patanjali meglelt, azt egy történetbe kódolt csillagképpel, egy vektorgrafikus ábrával hagyta rá az utókorra.</p>
 <p>Relatív hivatkozással felcímkézte a pszichében rejlő drágaköveket. Története szuggesztál azok létezésére - keresésre hív.</p>
+<div class="symbols" role="img" aria-label="Róka, lótusz, kígyó">
+<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27 7 21 4 7l7 5 5-2 5 2 7-5-3 14-9 6Z M7 21l5-3 4 7 4-7 5 3 M12 15h.01 M20 15h.01"/></svg>
+<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 25C9 22 10 13 16 6c6 7 7 16 0 19ZM13 23C7 23 4 19 3 14c4 0 7 2 8 4m8 5c6 0 9-4 10-9-4 0-7 2-8 4M6 25c6 3 14 3 20 0"/></svg>
+<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M23 8c-2-4-8-3-8 1 0 5 10 4 10 9s-7 7-14 7c-5 0-7-2-5-4 2-3 10-1 12-4 2-2-1-4-4-4H9 M23 8l3 1-3 2 M21 7h.01"/></svg>
+</div>
 </article></main>
 
 </body>
