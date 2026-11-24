@@ -4,21 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Írások</title>
+<title>Menü</title>
 <style>
 * { box-sizing: border-box; }
-body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: radial-gradient(ellipse at 25% 15%, #273054 0, transparent 50%), linear-gradient(155deg, #10172e, #070b18 70%); color: #f6f5f2; font-family: 'Courier New', Courier, monospace; }
-main { width: min(100% - 48px, 600px); padding: 80px 0; }
-h1 { margin: 0 0 2em; font-size: 1.3rem; font-weight: normal; }
-nav { display: grid; gap: 1px; }
-a { display: block; padding: 1.4em 0; border-bottom: 1px solid rgba(255,255,255,.2); color: inherit; font-size: clamp(1rem, 3vw, 1.2rem); line-height: 1.5; text-decoration: none; }
-a:hover, a:focus-visible { color: #c3ddff; }
-a:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
+html { min-height: 100%; background: #100e0c; }
+body { min-height: 100svh; margin: 0; display: flex; justify-content: center; align-items: end; color: #f4ead7; font-family: Georgia, 'Times New Roman', serif; background: linear-gradient(to bottom, rgba(12,10,9,.1) 0%, rgba(12,10,9,.12) 42%, rgba(12,10,9,.85) 100%), url('menu-library.jpg') center 35% / cover no-repeat; }
+main { width: min(100% - 48px, 560px); margin: 0 auto; padding: 0 0 clamp(60px, 12vh, 120px); }
+nav { display: grid; }
+a { display: block; padding: 1.1em .3em; border-bottom: 1px solid rgba(232,218,193,.35); color: inherit; font-size: clamp(1.15rem, 2.5vw, 1.5rem); line-height: 1.4; text-align: center; text-decoration: none; text-shadow: 0 2px 14px #000; transition: color .2s, border-color .2s; }
+a:first-child { border-top: 1px solid rgba(232,218,193,.35); }
+a:hover, a:focus-visible { color: #fff; border-color: #f4ead7; }
+a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+@media (min-width: 800px) { body { background-size: cover, auto 120%; background-position: center, center 20%; background-color: #100e0c; } }
 </style>
 </head>
 <body>
 <main>
-<h1>Írások</h1>
 <nav aria-label="Írások">
 <a href="testen-innen/">Testen innen, elmén túl</a>
 <a href="csillagkep/">Csillagkép</a>
