@@ -21,6 +21,7 @@
 html { min-height: 100%; background: #070c1b; }
 body { margin: 0; color: #f6f5f2; background: #070c1b; font-family: 'Courier New', Courier, monospace; }
 .sky { position: fixed; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 22% 12%, #273054 0, transparent 48%), radial-gradient(ellipse at 84% 78%, #1b2544 0, transparent 48%), linear-gradient(155deg, #10172e, #070b18 62%, #10172a); }
+.sky::before { content: ''; position: absolute; inset: 0; background: url('lepcso.jpg') center center / cover no-repeat; opacity: .22; }
 .sky::after { z-index: 0; content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(4,8,18,.59), rgba(4,8,18,.16) 85%); }
 .star { z-index: 1; position: absolute; border-radius: 50%; background: #fff; opacity: var(--dim); box-shadow: 0 0 var(--glow) rgba(205,220,255,.7); transform: scale(.75); }
 .shooting-star { position: absolute; z-index: 2; width: 90px; height: 2px; border-radius: 50%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), #fff); box-shadow: 0 0 8px rgba(205,220,255,.7); transform: rotate(35deg); animation: shoot 1.4s ease-out forwards; }
