@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Csillagok az égen</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { min-height: 100%; background: #070c1b; }
+body { margin: 0; color: #f6f5f2; background: #070c1b; font-family: 'Courier New', Courier, monospace; }
+.sky { position: fixed; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 22% 12%, #273054 0, transparent 48%), radial-gradient(ellipse at 84% 78%, #1b2544 0, transparent 48%), linear-gradient(155deg, #10172e, #070b18 62%, #10172a); }
+.sky::after { z-index: 0; content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(4,8,18,.59), rgba(4,8,18,.16) 85%); }
+.star { z-index: 1; position: absolute; border-radius: 50%; background: #fff; opacity: var(--dim); box-shadow: 0 0 var(--glow) rgba(205,220,255,.7); animation: twinkle 500s linear var(--delay) infinite; }
+@keyframes twinkle { 0% { opacity: .7; transform: scale(3.5); box-shadow: 0 0 1.75px .7px #fff, 0 0 7px 2.45px rgba(176,207,255,.8); animation-timing-function: ease-out; } 0.45%, 100% { opacity: var(--dim); transform: scale(.75); box-shadow: 0 0 var(--glow) rgba(205,220,255,.7); } }
+main { position: relative; z-index: 2; width: min(100% - 48px, 740px); margin: 0 auto; padding: clamp(88px, 14vh, 160px) 0 clamp(100px, 16vh, 180px); }
+article { font-size: clamp(15px, 1.7vw, 17px); line-height: 1.95; letter-spacing: .012em; text-shadow: 0 2px 12px #030713, 0 0 25px #030713; overflow-wrap: break-word; }
+p { margin: 0 0 1.8em; }
+p:last-child { margin-bottom: 0; }
+@media (max-width: 480px) { main { width: calc(100% - 38px); padding-top: 76px; } article { line-height: 1.85; } }
+
+
+.constellations { position: fixed; z-index: 1; right: 2%; top: 7%; width: min(70vw, 520px); height: 42vh; pointer-events: none; overflow: visible; }
+.constellation { opacity: 0; animation: constellation-fade 120s linear infinite; animation-delay: var(--start); }
+.constellation path { fill: none; stroke: #dbeaff; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 3px #b4d6ff); animation: constellation-draw 120s linear infinite; animation-delay: var(--start); }
+.constellation circle { fill: #fff; filter: drop-shadow(0 0 4px #c3ddff); }
+@keyframes constellation-draw { 0% { stroke-dashoffset: 1; } 0.73846%, 100% { stroke-dashoffset: 0; } }
+@keyframes constellation-fade { 0% { opacity: 1; } 1.2%, 1.8% { opacity: .85; } 4%, 100% { opacity: 0; } }
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+<span class="star" style="left:56.63%;top:90.23%;width:1.8px;height:1.8px;--glow:8.8px;--dim:0.40;--bright:0.96;--delay:-0.000000s"></span>
+<span class="star" style="left:90.99%;top:36.61%;width:1.9px;height:1.9px;--glow:9.3px;--dim:0.49;--bright:0.93;--delay:-498.500000s"></span>
+<span class="star" style="left:25.21%;top:52.22%;width:2.9px;height:2.9px;--glow:14.3px;--dim:0.37;--bright:0.82;--delay:-491.666667s"></span>
+<span class="star" style="left:55.33%;top:30.41%;width:2.6px;height:2.6px;--glow:13.0px;--dim:0.31;--bright:0.82;--delay:-490.166667s"></span>
+<span class="star" style="left:21.59%;top:78.84%;width:2.1px;height:2.1px;--glow:10.5px;--dim:0.33;--bright:1.00;--delay:-483.333333s"></span>
+<span class="star" style="left:29.15%;top:65.70%;width:2.0px;height:2.0px;--glow:9.9px;--dim:0.42;--bright:0.82;--delay:-481.833333s"></span>
+<span class="star" style="left:9.07%;top:47.03%;width:2.8px;height:2.8px;--glow:13.9px;--dim:0.45;--bright:0.86;--delay:-475.000000s"></span>
+<span class="star" style="left:98.07%;top:39.68%;width:2.7px;height:2.7px;--glow:13.7px;--dim:0.42;--bright:0.92;--delay:-473.500000s"></span>
+<span class="star" style="left:34.03%;top:60.45%;width:1.9px;height:1.9px;--glow:9.5px;--dim:0.39;--bright:0.89;--delay:-466.666667s"></span>
+<span class="star" style="left:55.75%;top:71.98%;width:1.5px;height:1.5px;--glow:7.7px;--dim:0.46;--bright:0.97;--delay:-465.166667s"></span>
+<span class="star" style="left:94.78%;top:49.43%;width:2.7px;height:2.7px;--glow:13.7px;--dim:0.30;--bright:0.93;--delay:-458.333333s"></span>
+<span class="star" style="left:95.80%;top:60.12%;width:3.1px;height:3.1px;--glow:15.5px;--dim:0.39;--bright:0.80;--delay:-456.833333s"></span>
+<span class="star" style="left:3.94%;top:53.05%;width:2.5px;height:2.5px;--glow:12.7px;--dim:0.41;--bright:0.91;--delay:-450.000000s"></span>
+<span class="star" style="left:83.91%;top:61.70%;width:2.0px;height:2.0px;--glow:10.0px;--dim:0.49;--bright:0.90;--delay:-448.500000s"></span>
+<span class="star" style="left:81.38%;top:60.05%;width:1.6px;height:1.6px;--glow:8.2px;--dim:0.46;--bright:0.88;--delay:-441.666667s"></span>
+<span class="star" style="left:14.27%;top:34.32%;width:2.3px;height:2.3px;--glow:11.7px;--dim:0.44;--bright:0.84;--delay:-440.166667s"></span>
+<span class="star" style="left:78.37%;top:41.64%;width:3.0px;height:3.0px;--glow:15.0px;--dim:0.33;--bright:0.96;--delay:-433.333333s"></span>
+<span class="star" style="left:92.09%;top:94.49%;width:1.5px;height:1.5px;--glow:7.5px;--dim:0.32;--bright:0.85;--delay:-431.833333s"></span>
+<span class="star" style="left:42.81%;top:28.47%;width:1.3px;height:1.3px;--glow:6.7px;--dim:0.32;--bright:0.98;--delay:-425.000000s"></span>
+<span class="star" style="left:82.85%;top:25.02%;width:2.2px;height:2.2px;--glow:11.1px;--dim:0.39;--bright:0.82;--delay:-423.500000s"></span>
+<span class="star" style="left:80.84%;top:16.58%;width:2.0px;height:2.0px;--glow:10.2px;--dim:0.32;--bright:0.88;--delay:-416.666667s"></span>
+<span class="star" style="left:45.09%;top:81.69%;width:2.5px;height:2.5px;--glow:12.7px;--dim:0.45;--bright:0.80;--delay:-415.166667s"></span>
+<span class="star" style="left:94.99%;top:86.47%;width:3.0px;height:3.0px;--glow:15.2px;--dim:0.48;--bright:0.85;--delay:-408.333333s"></span>
+<span class="star" style="left:89.59%;top:43.72%;width:3.1px;height:3.1px;--glow:15.3px;--dim:0.49;--bright:0.89;--delay:-406.833333s"></span>
+<span class="star" style="left:27.97%;top:31.85%;width:1.7px;height:1.7px;--glow:8.3px;--dim:0.34;--bright:0.98;--delay:-400.000000s"></span>
+<span class="star" style="left:75.53%;top:53.97%;width:2.1px;height:2.1px;--glow:10.6px;--dim:0.31;--bright:0.80;--delay:-398.500000s"></span>
+<span class="star" style="left:35.88%;top:61.88%;width:2.9px;height:2.9px;--glow:14.3px;--dim:0.31;--bright:0.83;--delay:-391.666667s"></span>
+<span class="star" style="left:72.58%;top:98.06%;width:2.0px;height:2.0px;--glow:10.0px;--dim:0.33;--bright:0.91;--delay:-390.166667s"></span>
+<span class="star" style="left:23.71%;top:29.33%;width:1.5px;height:1.5px;--glow:7.4px;--dim:0.49;--bright:0.94;--delay:-383.333333s"></span>
+<span class="star" style="left:79.25%;top:35.80%;width:2.0px;height:2.0px;--glow:10.1px;--dim:0.42;--bright:0.94;--delay:-381.833333s"></span>
+<span class="star" style="left:1.38%;top:32.31%;width:2.3px;height:2.3px;--glow:11.5px;--dim:0.32;--bright:0.91;--delay:-375.000000s"></span>
+<span class="star" style="left:96.58%;top:39.39%;width:1.8px;height:1.8px;--glow:9.0px;--dim:0.49;--bright:0.95;--delay:-373.500000s"></span>
+<span class="star" style="left:14.75%;top:56.08%;width:2.2px;height:2.2px;--glow:11.0px;--dim:0.35;--bright:0.93;--delay:-366.666667s"></span>
+<span class="star" style="left:35.38%;top:20.80%;width:2.2px;height:2.2px;--glow:10.8px;--dim:0.38;--bright:0.87;--delay:-365.166667s"></span>
+<span class="star" style="left:79.84%;top:84.36%;width:2.8px;height:2.8px;--glow:14.1px;--dim:0.46;--bright:0.81;--delay:-358.333333s"></span>
+<span class="star" style="left:37.13%;top:82.84%;width:3.2px;height:3.2px;--glow:16.0px;--dim:0.42;--bright:0.85;--delay:-356.833333s"></span>
+<span class="star" style="left:95.02%;top:76.02%;width:1.4px;height:1.4px;--glow:6.8px;--dim:0.33;--bright:0.82;--delay:-350.000000s"></span>
+<span class="star" style="left:91.12%;top:8.44%;width:2.8px;height:2.8px;--glow:13.9px;--dim:0.48;--bright:0.86;--delay:-348.500000s"></span>
+<span class="star" style="left:21.04%;top:58.50%;width:3.0px;height:3.0px;--glow:15.2px;--dim:0.33;--bright:0.88;--delay:-341.666667s"></span>
+<span class="star" style="left:41.60%;top:87.52%;width:2.3px;height:2.3px;--glow:11.6px;--dim:0.49;--bright:0.83;--delay:-340.166667s"></span>
+<span class="star" style="left:93.61%;top:34.42%;width:3.1px;height:3.1px;--glow:15.3px;--dim:0.44;--bright:0.81;--delay:-333.333333s"></span>
+<span class="star" style="left:18.87%;top:56.75%;width:3.1px;height:3.1px;--glow:15.4px;--dim:0.47;--bright:0.97;--delay:-331.833333s"></span>
+<span class="star" style="left:70.87%;top:33.28%;width:1.5px;height:1.5px;--glow:7.4px;--dim:0.46;--bright:0.86;--delay:-325.000000s"></span>
+<span class="star" style="left:28.81%;top:97.51%;width:3.0px;height:3.0px;--glow:14.8px;--dim:0.38;--bright:0.99;--delay:-323.500000s"></span>
+<span class="star" style="left:77.48%;top:56.04%;width:1.9px;height:1.9px;--glow:9.6px;--dim:0.41;--bright:0.98;--delay:-316.666667s"></span>
+<span class="star" style="left:52.88%;top:98.06%;width:2.2px;height:2.2px;--glow:10.8px;--dim:0.42;--bright:0.98;--delay:-315.166667s"></span>
+<span class="star" style="left:65.34%;top:23.72%;width:1.8px;height:1.8px;--glow:9.0px;--dim:0.39;--bright:0.82;--delay:-308.333333s"></span>
+<span class="star" style="left:93.98%;top:38.85%;width:3.1px;height:3.1px;--glow:15.3px;--dim:0.46;--bright:0.87;--delay:-306.833333s"></span>
+<span class="star" style="left:71.59%;top:22.33%;width:1.8px;height:1.8px;--glow:9.0px;--dim:0.38;--bright:0.89;--delay:-300.000000s"></span>
+<span class="star" style="left:53.19%;top:43.62%;width:3.1px;height:3.1px;--glow:15.4px;--dim:0.40;--bright:0.83;--delay:-298.500000s"></span>
+<span class="star" style="left:85.05%;top:18.18%;width:2.2px;height:2.2px;--glow:11.1px;--dim:0.37;--bright:0.81;--delay:-291.666667s"></span>
+<span class="star" style="left:35.69%;top:58.24%;width:1.5px;height:1.5px;--glow:7.5px;--dim:0.40;--bright:0.84;--delay:-290.166667s"></span>
+<span class="star" style="left:52.47%;top:34.31%;width:2.0px;height:2.0px;--glow:10.0px;--dim:0.38;--bright:0.93;--delay:-283.333333s"></span>
+<span class="star" style="left:65.64%;top:96.12%;width:2.8px;height:2.8px;--glow:13.8px;--dim:0.46;--bright:0.91;--delay:-281.833333s"></span>
+<span class="star" style="left:82.05%;top:9.30%;width:3.2px;height:3.2px;--glow:15.9px;--dim:0.45;--bright:0.83;--delay:-275.000000s"></span>
+<span class="star" style="left:1.46%;top:14.67%;width:3.2px;height:3.2px;--glow:15.8px;--dim:0.35;--bright:0.81;--delay:-273.500000s"></span>
+<span class="star" style="left:3.52%;top:30.88%;width:2.7px;height:2.7px;--glow:13.6px;--dim:0.48;--bright:0.85;--delay:-266.666667s"></span>
+<span class="star" style="left:91.85%;top:88.88%;width:3.0px;height:3.0px;--glow:14.8px;--dim:0.32;--bright:0.99;--delay:-265.166667s"></span>
+<span class="star" style="left:21.96%;top:61.28%;width:2.2px;height:2.2px;--glow:11.1px;--dim:0.37;--bright:0.94;--delay:-258.333333s"></span>
+<span class="star" style="left:96.97%;top:16.49%;width:2.1px;height:2.1px;--glow:10.5px;--dim:0.38;--bright:0.84;--delay:-256.833333s"></span>
+<span class="star" style="left:1.07%;top:38.17%;width:2.7px;height:2.7px;--glow:13.7px;--dim:0.32;--bright:0.90;--delay:-250.000000s"></span>
+<span class="star" style="left:11.39%;top:37.90%;width:2.5px;height:2.5px;--glow:12.6px;--dim:0.33;--bright:0.88;--delay:-248.500000s"></span>
+<span class="star" style="left:44.21%;top:96.23%;width:2.6px;height:2.6px;--glow:12.8px;--dim:0.34;--bright:0.98;--delay:-241.666667s"></span>
+<span class="star" style="left:66.55%;top:32.86%;width:1.8px;height:1.8px;--glow:9.0px;--dim:0.44;--bright:1.00;--delay:-240.166667s"></span>
+<span class="star" style="left:39.08%;top:39.81%;width:1.8px;height:1.8px;--glow:9.2px;--dim:0.43;--bright:0.81;--delay:-233.333333s"></span>
+<span class="star" style="left:87.45%;top:48.22%;width:2.6px;height:2.6px;--glow:13.1px;--dim:0.33;--bright:0.98;--delay:-231.833333s"></span>
+<span class="star" style="left:29.10%;top:86.06%;width:2.9px;height:2.9px;--glow:14.3px;--dim:0.41;--bright:0.84;--delay:-225.000000s"></span>
+<span class="star" style="left:84.37%;top:31.92%;width:1.9px;height:1.9px;--glow:9.4px;--dim:0.34;--bright:0.88;--delay:-223.500000s"></span>
+<span class="star" style="left:97.71%;top:51.88%;width:2.3px;height:2.3px;--glow:11.4px;--dim:0.33;--bright:0.85;--delay:-216.666667s"></span>
+<span class="star" style="left:81.13%;top:18.89%;width:3.2px;height:3.2px;--glow:15.9px;--dim:0.50;--bright:0.95;--delay:-215.166667s"></span>
+<span class="star" style="left:39.80%;top:89.09%;width:2.6px;height:2.6px;--glow:13.1px;--dim:0.41;--bright:0.98;--delay:-208.333333s"></span>
+<span class="star" style="left:96.40%;top:14.55%;width:3.1px;height:3.1px;--glow:15.6px;--dim:0.47;--bright:0.80;--delay:-206.833333s"></span>
+<span class="star" style="left:4.17%;top:64.54%;width:2.0px;height:2.0px;--glow:9.9px;--dim:0.40;--bright:0.95;--delay:-200.000000s"></span>
+<span class="star" style="left:82.81%;top:32.18%;width:3.0px;height:3.0px;--glow:15.0px;--dim:0.37;--bright:0.92;--delay:-198.500000s"></span>
+<span class="star" style="left:10.00%;top:85.52%;width:1.5px;height:1.5px;--glow:7.5px;--dim:0.45;--bright:0.89;--delay:-191.666667s"></span>
+<span class="star" style="left:50.53%;top:69.35%;width:1.3px;height:1.3px;--glow:6.6px;--dim:0.35;--bright:0.99;--delay:-190.166667s"></span>
+<span class="star" style="left:10.42%;top:50.13%;width:2.1px;height:2.1px;--glow:10.6px;--dim:0.46;--bright:0.84;--delay:-183.333333s"></span>
+<span class="star" style="left:75.03%;top:72.71%;width:2.1px;height:2.1px;--glow:10.4px;--dim:0.42;--bright:0.89;--delay:-181.833333s"></span>
+<span class="star" style="left:77.71%;top:61.90%;width:1.6px;height:1.6px;--glow:8.2px;--dim:0.41;--bright:0.86;--delay:-175.000000s"></span>
+<span class="star" style="left:89.59%;top:16.71%;width:2.1px;height:2.1px;--glow:10.4px;--dim:0.44;--bright:0.88;--delay:-173.500000s"></span>
+<span class="star" style="left:91.40%;top:17.74%;width:1.5px;height:1.5px;--glow:7.5px;--dim:0.31;--bright:0.88;--delay:-166.666667s"></span>
+<span class="star" style="left:2.80%;top:86.18%;width:1.9px;height:1.9px;--glow:9.7px;--dim:0.41;--bright:0.85;--delay:-165.166667s"></span>
+<span class="star" style="left:54.74%;top:61.34%;width:3.1px;height:3.1px;--glow:15.7px;--dim:0.49;--bright:0.91;--delay:-158.333333s"></span>
+<span class="star" style="left:87.89%;top:11.59%;width:2.6px;height:2.6px;--glow:12.8px;--dim:0.44;--bright:0.98;--delay:-156.833333s"></span>
+<span class="star" style="left:69.38%;top:14.06%;width:1.7px;height:1.7px;--glow:8.7px;--dim:0.48;--bright:0.82;--delay:-150.000000s"></span>
+<span class="star" style="left:2.74%;top:49.84%;width:2.7px;height:2.7px;--glow:13.6px;--dim:0.41;--bright:0.95;--delay:-148.500000s"></span>
+<span class="star" style="left:26.14%;top:4.47%;width:2.0px;height:2.0px;--glow:9.9px;--dim:0.43;--bright:0.90;--delay:-141.666667s"></span>
+<span class="star" style="left:14.30%;top:30.23%;width:2.7px;height:2.7px;--glow:13.6px;--dim:0.34;--bright:0.99;--delay:-140.166667s"></span>
+<span class="star" style="left:49.13%;top:52.74%;width:1.7px;height:1.7px;--glow:8.3px;--dim:0.46;--bright:0.95;--delay:-133.333333s"></span>
+<span class="star" style="left:53.50%;top:61.48%;width:2.6px;height:2.6px;--glow:13.1px;--dim:0.42;--bright:0.90;--delay:-131.833333s"></span>
+<span class="star" style="left:41.59%;top:26.95%;width:2.4px;height:2.4px;--glow:12.2px;--dim:0.39;--bright:0.81;--delay:-125.000000s"></span>
+<span class="star" style="left:75.92%;top:23.66%;width:1.6px;height:1.6px;--glow:8.0px;--dim:0.31;--bright:0.82;--delay:-123.500000s"></span>
+<span class="star" style="left:85.50%;top:6.51%;width:3.0px;height:3.0px;--glow:15.2px;--dim:0.41;--bright:0.81;--delay:-116.666667s"></span>
+<span class="star" style="left:19.49%;top:72.64%;width:1.5px;height:1.5px;--glow:7.5px;--dim:0.37;--bright:0.82;--delay:-115.166667s"></span>
+<span class="star" style="left:7.86%;top:50.56%;width:3.0px;height:3.0px;--glow:15.1px;--dim:0.48;--bright:0.92;--delay:-108.333333s"></span>
+<span class="star" style="left:6.60%;top:63.06%;width:2.3px;height:2.3px;--glow:11.3px;--dim:0.45;--bright:0.84;--delay:-106.833333s"></span>
+<span class="star" style="left:77.72%;top:2.33%;width:1.7px;height:1.7px;--glow:8.5px;--dim:0.33;--bright:0.82;--delay:-100.000000s"></span>
+<span class="star" style="left:96.55%;top:9.51%;width:2.6px;height:2.6px;--glow:13.2px;--dim:0.48;--bright:0.88;--delay:-98.500000s"></span>
+<span class="star" style="left:5.84%;top:95.95%;width:1.8px;height:1.8px;--glow:9.1px;--dim:0.41;--bright:0.98;--delay:-91.666667s"></span>
+<span class="star" style="left:53.73%;top:86.20%;width:2.6px;height:2.6px;--glow:12.8px;--dim:0.36;--bright:0.91;--delay:-90.166667s"></span>
+<span class="star" style="left:34.40%;top:68.89%;width:2.5px;height:2.5px;--glow:12.7px;--dim:0.39;--bright:0.95;--delay:-83.333333s"></span>
+<span class="star" style="left:5.91%;top:1.56%;width:1.5px;height:1.5px;--glow:7.4px;--dim:0.32;--bright:0.95;--delay:-81.833333s"></span>
+<span class="star" style="left:49.93%;top:53.80%;width:2.9px;height:2.9px;--glow:14.3px;--dim:0.39;--bright:0.83;--delay:-75.000000s"></span>
+<span class="star" style="left:9.95%;top:72.54%;width:2.9px;height:2.9px;--glow:14.3px;--dim:0.35;--bright:0.88;--delay:-73.500000s"></span>
+<span class="star" style="left:11.91%;top:90.01%;width:2.8px;height:2.8px;--glow:13.9px;--dim:0.32;--bright:0.93;--delay:-66.666667s"></span>
+<span class="star" style="left:71.97%;top:32.71%;width:1.9px;height:1.9px;--glow:9.4px;--dim:0.35;--bright:0.83;--delay:-65.166667s"></span>
+<span class="star" style="left:50.95%;top:65.59%;width:2.2px;height:2.2px;--glow:11.2px;--dim:0.40;--bright:0.88;--delay:-58.333333s"></span>
+<span class="star" style="left:30.46%;top:23.01%;width:1.8px;height:1.8px;--glow:9.0px;--dim:0.47;--bright:0.93;--delay:-56.833333s"></span>
+<span class="star" style="left:25.29%;top:8.14%;width:2.9px;height:2.9px;--glow:14.5px;--dim:0.46;--bright:0.82;--delay:-50.000000s"></span>
+<span class="star" style="left:54.95%;top:95.18%;width:2.6px;height:2.6px;--glow:13.1px;--dim:0.42;--bright:0.97;--delay:-48.500000s"></span>
+<span class="star" style="left:26.67%;top:39.26%;width:2.7px;height:2.7px;--glow:13.7px;--dim:0.46;--bright:0.95;--delay:-41.666667s"></span>
+<span class="star" style="left:69.06%;top:92.52%;width:3.0px;height:3.0px;--glow:15.1px;--dim:0.35;--bright:0.80;--delay:-40.166667s"></span>
+<span class="star" style="left:15.11%;top:24.47%;width:1.7px;height:1.7px;--glow:8.7px;--dim:0.46;--bright:0.89;--delay:-33.333333s"></span>
+<span class="star" style="left:49.96%;top:80.16%;width:2.4px;height:2.4px;--glow:12.2px;--dim:0.46;--bright:0.98;--delay:-31.833333s"></span>
+<span class="star" style="left:41.61%;top:79.87%;width:1.8px;height:1.8px;--glow:9.2px;--dim:0.43;--bright:0.95;--delay:-25.000000s"></span>
+<span class="star" style="left:56.63%;top:90.23%;width:1.8px;height:1.8px;--glow:8.8px;--dim:0.40;--bright:0.96;--delay:-23.500000s"></span>
+<span class="star" style="left:90.99%;top:36.61%;width:1.9px;height:1.9px;--glow:9.3px;--dim:0.49;--bright:0.93;--delay:-16.666667s"></span>
+<span class="star" style="left:25.21%;top:52.22%;width:2.9px;height:2.9px;--glow:14.3px;--dim:0.37;--bright:0.82;--delay:-15.166667s"></span>
+<span class="star" style="left:55.33%;top:30.41%;width:2.6px;height:2.6px;--glow:13.0px;--dim:0.31;--bright:0.82;--delay:-8.333333s"></span>
+<span class="star" style="left:21.59%;top:78.84%;width:2.1px;height:2.1px;--glow:10.5px;--dim:0.33;--bright:1.00;--delay:-6.833333s"></span>
+</div>
+<svg class="constellations" viewBox="0 0 400 300" aria-hidden="true">
+  <g class="constellation" style="--start:30s"><title>Nagy Göncöl</title><path pathLength="1" d="M154.5 40.0 L187.0 66.0 L206.5 106.7 L213.0 153.8 L178.9 181.5 L204.9 240.0 L245.5 225.4 L213.0 153.8"/><circle cx="154.5" cy="40.0" r="2.5"/><circle cx="187.0" cy="66.0" r="2.5"/><circle cx="206.5" cy="106.7" r="2.5"/><circle cx="213.0" cy="153.8" r="2.5"/><circle cx="178.9" cy="181.5" r="2.5"/><circle cx="204.9" cy="240.0" r="2.5"/><circle cx="245.5" cy="225.4" r="2.5"/></g>
+  <g class="constellation" style="--start:60s"><title>Kis Göncöl</title><path pathLength="1" d="M86.1 48.3 L166.7 40.0 L169.4 112.2 L105.6 117.8 L86.1 48.3 M169.4 112.2 L233.3 115.0 L275.0 173.3 L313.9 240.0"/><circle cx="86.1" cy="48.3" r="2.5"/><circle cx="166.7" cy="40.0" r="2.5"/><circle cx="169.4" cy="112.2" r="2.5"/><circle cx="105.6" cy="117.8" r="2.5"/><circle cx="233.3" cy="115.0" r="2.5"/><circle cx="275.0" cy="173.3" r="2.5"/><circle cx="313.9" cy="240.0" r="2.5"/></g>
+  <g class="constellation" style="--start:90s"><title>Pegazus</title><path pathLength="1" d="M197.0 40.0 L228.1 69.0 L241.9 104.7 L240.6 127.8 L201.0 129.8 L202.3 186.5 L245.2 185.9 L240.6 127.8 M201.0 129.8 L199.0 115.2 L182.5 122.5 M202.3 186.5 L200.3 205.7 L189.1 221.5 L165.3 240.0 M202.3 186.5 L177.2 207.7 L154.8 220.2"/><circle cx="197.0" cy="40.0" r="2.5"/><circle cx="228.1" cy="69.0" r="2.5"/><circle cx="241.9" cy="104.7" r="2.5"/><circle cx="240.6" cy="127.8" r="2.5"/><circle cx="201.0" cy="129.8" r="2.5"/><circle cx="202.3" cy="186.5" r="2.5"/><circle cx="245.2" cy="185.9" r="2.5"/><circle cx="199.0" cy="115.2" r="2.5"/><circle cx="182.5" cy="122.5" r="2.5"/><circle cx="200.3" cy="205.7" r="2.5"/><circle cx="189.1" cy="221.5" r="2.5"/><circle cx="165.3" cy="240.0" r="2.5"/><circle cx="154.8" cy="220.2" r="2.5"/><circle cx="177.2" cy="207.7" r="2.5"/></g>
+  <g class="constellation" style="--start:120s"><title>Orion</title><path pathLength="1" d="M150.7 82.3 L122.5 118.9 L162.0 178.0 L184.5 240.0 L259.2 199.2 L204.2 147.0 L184.5 102.0 L150.7 82.3 M162.0 178.0 L181.7 172.4 L204.2 147.0 M184.5 102.0 L257.7 54.1 L238.0 40.0 M257.7 54.1 L274.6 80.8 L277.5 110.4"/><circle cx="150.7" cy="82.3" r="2.5"/><circle cx="122.5" cy="118.9" r="2.5"/><circle cx="162.0" cy="178.0" r="2.5"/><circle cx="184.5" cy="240.0" r="2.5"/><circle cx="259.2" cy="199.2" r="2.5"/><circle cx="204.2" cy="147.0" r="2.5"/><circle cx="184.5" cy="102.0" r="2.5"/><circle cx="257.7" cy="54.1" r="2.5"/><circle cx="238.0" cy="40.0" r="2.5"/><circle cx="274.6" cy="80.8" r="2.5"/><circle cx="277.5" cy="110.4" r="2.5"/><circle cx="181.7" cy="172.4" r="2.5"/></g>
+</svg>
+<main><article>
+<p>A világban a társadalom is éli a saját életciklusait. Minden kultúra mintha az emberiség alteregója lenne.</p>
+<p>Időben folyamatosan változva, csakúgy mint maga az egyedi ember.</p>
+<p>A megítélés, a megértés, az értelmezés mind az adott kor és helyzet függvényében evolvál - olykor akár U alakot is leírva.</p>
+<p>Csakúgy társadalmi, mint egyed szinten.</p>
+<p>A helyes megértés egy elvi szint a mibenlét felszínén - vagy ahhoz nagyon közel.</p>
+<p>Az én megértésem szinte majdnem helyes. Az ő megértése mindig tökéletlen. A két megértés kapcsolata vitatott.</p>
+<p>Új megértéssel megítélni a régi értelmezést méltatlan. Az első lépcsőfok is fontos, hanem fontosabb mint a második és harmadik. Negyedik, s ötödik. Hatodik, hetedik.</p>
+<p>A természet ciklikus, az idő dimenziójában mint egy csigalépcső visz előre és körbe - körbe.</p>
+<p>Ha nincs fény, a lépcsőház sötét. A sötétben könnyű elbukni, eltévedni, megrekedni.</p>
+<p>A hét lépcsőt mögöttem, és a hét lépcsőt előttem - ennyi mind az amire igaz mód hivatkozhatok. A hét visszább és a hét előrébb - relatív címzés. </p>
+<p>Az abszolút tartalom lépésről lépésre felülíródik. Az értelmezett és vele az értelem is dinamikus, csak az értelmezés pillanatában pontszerű. Statikus jellege illúzió - ígymond az abszolút értelem is fantázia.</p>
+<p>A megpendített gitárhúr hangot ad. A hang természete hullám. Ha egy adott ponton megállítom a húrt, értelmezhetem a helyzetét - de a hullám megszűnik. A hang elnémul.</p>
+<p>Az anyag viselkedésére fizika. Működése törvényszerű. A természeti törvényeken nem fog az idő, hiszen az idő is a természet része.</p>
+<p>A természeti törvény vektorokkal leírható. Egy kód, ami a platformtól függően ábrázolja a képet. Értelmet nem hordoz, azt a pillanatnyi értelmező alkotja.</p>
+<p>A kód egy nyelv. Aki nyelvet tanul, az a pillanatnyi jelentésen keresztül, magas számú mintavételezéssel próbálja visszafejteni a vektort.</p>
+<p>A nyelvtudás így lesz a durva állapotból kezdetben egyre összetettebb. Majd egyre kifinomultabb. Később egyre egyszerűbb. Végül teljesen általános - vektorszerű.</p>
+<p>Az emberi természet kódnyelve a szimbólum.</p>
+<p>Patanjali. Aki az imádkozó tenyerekből a földrehullot. A tudás amely félig finomított emberi - alkalmazott. Félig nyersen természeti - idomíthatatlan. Lenyűgöző és rémisztő. Gyönyörű és veszedelmes.</p>
+<p>Szándéka időtálló, az értelmezés felszínétől mélyebben rejlik. Ábrázol egy utat, amelyet történetben rögzít. </p>
+<p>A szutrák a felszínen jelenetek egy filmben, egy épület lépcsői, egy könyv lapjai. <br>A szutrák a mélyben vektorok - mint három csillagkép, terülnek szét az égen.</p>
+<p>Szétszórt ereklyék, amik segítenek navigálni az életben - hasznos tudást és képességeket rejtve. </p>
+<p>Amikor felvillan egy csillag az égen, akkor egy kicsit világosabb lesz a lépcsőházban.</p>
+<p>Amit Patanjali meglelt, azt egy történetbe kódolt csillagképpel, egy vektorgrafikus ábrával hagyta rá az utókorra.</p>
+<p>Relatív hivatkozással felcímkézte a pszichében rejlő drágaköveket. Története szuggesztál azok létezésére - keresésre hív.</p>
+</article></main>
+
+</body>
+</html>
